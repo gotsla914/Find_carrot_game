@@ -1,6 +1,8 @@
+*{box-sizing: border-box;}
+
 html,
 body {
-    overflow: hidden;
+    /* overflow: hidden; */
     max-width: 100vw;
     box-sizing: border-box;
 }
@@ -34,20 +36,29 @@ main>.gameWrapper>.gameControler>span {
     height: 2.2rem;
     width: 8rem;
     background-color: #616161;
-    border: 2px solid lightsalmon;
+    border: none;
     border-radius: 10px;
     color: lightsalmon;
+    transition: 0.2s ease-in-out;
+
 
 }
+main>.gameWrapper>.gameControler>button:hover {
+    transform:scale(1.1); 
+    border: 2px solid lightsalmon;
+
+}
+
 
 main>.gameWrapper>.gameControler>button {
-    cursor: pointer;    
+    cursor: pointer;
 }
+
 main>.gameWrapper>.gameControler>span {
     font: 1.5rem;
     line-height: 2rem;
     border: none;
-    background-color: #616161;
+    background-color: #919191;
     color: white;
 }
 
@@ -57,4 +68,73 @@ main>.gameWrapper>.gameControler>button:last-child {
 
 main>.gameWrapper>.gameArea {
     height: 100%;
+}
+
+
+/* modal */
+
+.modal {
+    width: 100%;
+    border: 3px solid saddlebrown;
+    display: flex;
+    opacity: 1;
+    
+}
+
+.modal>.madalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6)
+
+}
+.modal>.modalInner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    flex-direction: column;
+    width: 25rem;
+    padding: 2rem;
+    text-align: center;
+    background-color: rgb(204, 204, 204);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+
+}
+.modal>.modalInner>img {
+    width: 10rem;
+    border-radius: 5rem;
+    margin-bottom: 1rem;
+    
+}
+.modal>.modalInner>.popText {
+    font: 1.2rem/1.7rem "Pretendard-Regular", "Fira Sans", sans-serif;
+    margin-bottom: 1rem;
+
+}
+
+.modal>.modalInner>.btnClose {
+    font: 1rem/1.7rem "Pretendard-Regular", "Fira Sans", sans-serif;
+    display: block;
+    margin: 0.2rem auto 0 auto;
+    height: 2.2rem;
+    width: 4.5rem;
+    border: none;
+    border-radius: 10px;
+    transition: 0.2s ease-in-out;
+    background-color: #616161;
+    color: white;
+    cursor: pointer;
+}
+
+.modal>.modalInner>.btnClose:hover {
+    transform:scale(1.1); 
+    border: 2px solid lightsalmon;
+    color: lightsalmon;
+}
+
+.objHidden {
+    display: none;
 }
