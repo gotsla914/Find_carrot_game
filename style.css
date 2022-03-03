@@ -79,6 +79,7 @@ main>.gameWrapper>.gameArea {
     
 }
 
+.gameOver>.gameOverlay,
 .modal>.madalOverlay {
     position: fixed;
     top: 0;
@@ -86,8 +87,9 @@ main>.gameWrapper>.gameArea {
     width: 100%;
     height: 100%;
     background-color: rgba(0,0,0,0.6)
-
 }
+
+.gameOver>.gameOverlInner,
 .modal>.modalInner {
     position: absolute;
     top: 50%;
@@ -101,18 +103,22 @@ main>.gameWrapper>.gameArea {
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 
 }
+
+.gameOver>.gameOverlInner>img,
 .modal>.modalInner>img {
     width: 10rem;
-    border-radius: 5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
     
 }
+
+.gameOver>.gameOverlInner>.popText,
 .modal>.modalInner>.popText {
     font: 1.2rem/1.7rem "Pretendard-Regular", "Fira Sans", sans-serif;
     margin-bottom: 1rem;
 
 }
 
+.gameOver>.gameOverlInner>.gameOverClose,
 .modal>.modalInner>.btnClose {
     font: 1rem/1.7rem "Pretendard-Regular", "Fira Sans", sans-serif;
     display: block;
@@ -127,6 +133,7 @@ main>.gameWrapper>.gameArea {
     cursor: pointer;
 }
 
+.gameOver>.gameOverlInner>.gameOverClose:hover,
 .modal>.modalInner>.btnClose:hover {
     transform:scale(1.1); 
     border: 2px solid lightsalmon;
@@ -136,3 +143,6 @@ main>.gameWrapper>.gameArea {
 .objHidden {
     display: none;
 }
+
+
+
