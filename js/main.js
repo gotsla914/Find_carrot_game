@@ -1,3 +1,5 @@
+'use strict'
+
 const modal = document.querySelector('.modal');
 const modalOverlay = document.querySelector('.madalOverlay');
 const btnClose = document.querySelector('.btnClose');
@@ -18,26 +20,47 @@ modalOverlay.addEventListener('click', closeModal);
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // 시간초과
 const gameOver = document.querySelector('.gameOver');
 const btnGameOverClose = document.querySelector('.gameOverClose');
 const gameOverlay = document.querySelector('.gameOverlay')
+let callCount = '';
+
 
 const openTimOutModal = () => {
     gameOver.classList.remove('objHidden');
 }
-setTimeout(openTimOutModal, 3000);
+setTimeout(openTimOutModal, 10000);
 
 const closeGameOverModal = () => {
     gameOver.classList.add('objHidden');
 }
 btnGameOverClose.addEventListener('click', closeGameOverModal);
 
+
 const timer = document.querySelector('.timer');
 let timeCount = 0;
-setInterval(updateTimeCount, 1000);
+
+callCount = setInterval(updateTimeCount, 1000);
 
 function updateTimeCount() {
     timeCount++;
     timer.innerHTML = timeCount;
+    if(timeCount == 10){
+        clearInterval(callCount);
+    }
 }
