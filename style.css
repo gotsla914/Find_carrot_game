@@ -1,6 +1,6 @@
 html,
 body {
-    overflow: hidden;
+    /* overflow: hidden; */
     max-width: 100vw;
     box-sizing: border-box;
 }
@@ -9,19 +9,19 @@ main {}
 
 main>.gameWrapper {
     font: 1.2em "Pretendard-Regular", "Fira Sans", sans-serif;
+    display: flex;
+    flex-direction: column;
     width: 100vw;
     height: 100vh;
     background-image: url(img/background.png);
     background-repeat: no-repeat;
     background-size: cover;
     text-align: center;
-    display: flex;
-    flex-direction: column;
 }
 
 main>.gameWrapper>.gameControler {
     width: 15rem;
-    min-height: 30rem;
+    min-height: 29rem;
     flex: 1 0 400px;
     margin: 1rem auto;
 }
@@ -41,8 +41,9 @@ main>.gameWrapper>.gameControler>span {
 
 
 }
+
 main>.gameWrapper>.gameControler>button:hover {
-    transform:scale(1.1); 
+    transform: scale(1.1);
     border: 2px solid lightsalmon;
 
 }
@@ -65,18 +66,19 @@ main>.gameWrapper>.gameControler>button:last-child {
 }
 
 main>.gameWrapper>.gameArea {
-    height: 100%;
+    position: relative;
+    height: 100vh;
 }
 
 
 /* modal */
 
 .modal {
-    width: 100%;
+    width: 100vh;
     border: 3px solid saddlebrown;
     display: flex;
     opacity: 1;
-    
+
 }
 
 .gameOver>.gameOverlay,
@@ -84,9 +86,9 @@ main>.gameWrapper>.gameArea {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.6)
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6)
 }
 
 .gameOver>.gameOverlInner,
@@ -100,15 +102,17 @@ main>.gameWrapper>.gameArea {
     padding: 2rem;
     text-align: center;
     background-color: rgb(204, 204, 204);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
 
 .gameOver>.gameOverlInner>img,
 .modal>.modalInner>img {
     width: 10rem;
     margin-bottom: 2rem;
-    
+}
+
+.modal>.modalInner>img {
+    border-radius: 6rem;
 }
 
 .gameOver>.gameOverlInner>.popText,
@@ -135,14 +139,14 @@ main>.gameWrapper>.gameArea {
 
 .gameOver>.gameOverlInner>.gameOverClose:hover,
 .modal>.modalInner>.btnClose:hover {
-    transform:scale(1.1); 
+    transform: scale(1.1);
     border: 2px solid lightsalmon;
     color: lightsalmon;
 }
 
 .objHidden {
     display: none;
+    flex: 1 0 400px;
+    margin: 1rem auto;
+
 }
-
-
-
