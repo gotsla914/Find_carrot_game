@@ -17,30 +17,34 @@
             font-weight: 400;
             font-style: normal;
         }
+
+        /* Desktop Device */
+        @media all and (min-width:1725px) {
+
+            main>.gameWrapper>.gameControler {
+                width: 15rem;
+                min-height: 38rem;
+                flex: 1 0 400px;
+                margin: 1rem auto;
+            }
+        }
     </style>
 </head>
 
 <body>
     <h1 class="hidden">당근찾기 게임</h1>
-    <main><!-- 배경 -->
+    <main>
+        <!-- 배경 -->
         <div class="gameWrapper">
             <div class="gameControler">
                 <button type="button" class="xi-play btnStart"> </button>
                 <button type="button" class="xi-stop btnStop"> </button>
                 <span class="xi-alarm timer"> </span>
-                <span class="xi-flag count">  </span>
+                <span class="xi-flag count"> </span>
             </div>
             <section class="gameArea">
                 랜덤배치 영역
                 <a href="javascript:void(0);"><img src="img/bug.png" alt="bug"></a>
-                <a href="javascript:void(0);"><img src="img/bug.png" alt="bug"></a>
-                <a href="javascript:void(0);"><img src="img/bug.png" alt="bug"></a>
-                <a href="javascript:void(0);"><img src="img/bug.png" alt="bug"></a>
-                <a href="javascript:void(0);"><img src="img/bug.png" alt="bug"></a>
-                <a href="javascript:void(0);"><img src="img/carrot.png" alt="carrot"></a>
-                <a href="javascript:void(0);"><img src="img/carrot.png" alt="carrot"></a>
-                <a href="javascript:void(0);"><img src="img/carrot.png" alt="carrot"></a>
-                <a href="javascript:void(0);"><img src="img/carrot.png" alt="carrot"></a>
                 <a href="javascript:void(0);"><img src="img/carrot.png" alt="carrot"></a>
             </section>
         </div>
@@ -51,7 +55,7 @@
         <div class="modalInner">
             <img src="img/ggam.png" alt="avatar">
             <p class="popText">🐇토순이가 3일 째 굶었대요!🐇 <br> 당근을 구해주세요🥕</p>
-            <button type="button" class="btnClose">닫기</button>
+            <button type="button" class="btnClose">START</button>
         </div>
     </div>
     <div class="gameOver objHidden">
@@ -59,7 +63,7 @@
         <div class="gameOverlInner">
             <img src="img/ghost_skype.png" alt="avatar">
             <p class="popText">시간초과 ! <br> 다시 도전하세요</p>
-            <button type="button" class="gameOverClose">닫기</button>
+            <button type="button" class="gameOverClose">Close</button>
         </div>
     </div>
 </body>
