@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="reset.css">
     <script src="js/main.js" defer></script>
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <script src="https://kit.fontawesome.com/4e51e47c27.js" crossorigin="anonymous"></script>
     <style>
         @font-face {
             font-family: "Pretendard-Regular";
@@ -34,18 +34,14 @@
 <body>
     <h1 class="hidden">당근찾기 게임</h1>
     <main>
-        <!-- 배경 -->
+        <!-- game bg -->
         <div class="gameWrapper">
             <div class="gameControler">
-                <button type="button" class="xi-play btnStart"> </button>
-                <button type="button" class="xi-stop btnStop"> </button>
-                <span class="xi-alarm timer"> </span>
-                <span class="xi-flag count"> </span>
+                <button type="button" class="gameBtn"><i class="fa-solid fa-play"></i> </button>
+                <span class="gameTimer">00:00</span>
+                <span class="gameScore"></span>
             </div>
             <section class="gameArea">
-                랜덤배치 영역
-                <a href="javascript:void(0);"><img src="img/bug.png" alt="bug"></a>
-                <a href="javascript:void(0);"><img src="img/carrot.png" alt="carrot"></a>
             </section>
         </div>
     </main>
