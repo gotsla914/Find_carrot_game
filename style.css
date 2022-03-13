@@ -26,9 +26,9 @@ main>.gameWrapper>.gameControler {
     margin: 1rem auto;
 }
 
-main>.gameWrapper>.gameControler>button,
+main>.gameWrapper>.gameControler>.gameBtn,
 main>.gameWrapper>.gameControler>span {
-    font: 1.6rem/1.7rem "Pretendard-Regular", "Fira Sans", sans-serif;
+    font: 1.2rem/1.7rem "Pretendard-Regular", "Fira Sans", sans-serif;
     display: block;
     margin: 0.2rem auto;
     height: 2.2rem;
@@ -38,14 +38,17 @@ main>.gameWrapper>.gameControler>span {
     border-radius: 10px;
     color: lightsalmon;
     transition: 0.2s ease-in-out;
-
-
 }
+main>.gameWrapper>.gameControler>.gameTimer,
+main>.gameWrapper>.gameControler>.gameScore { 
+    visibility: hidden;
+}
+
+
 
 main>.gameWrapper>.gameControler>button:hover {
     transform: scale(1.1);
     border: 2px solid lightsalmon;
-
 }
 
 
@@ -61,10 +64,6 @@ main>.gameWrapper>.gameControler>span {
     color: white;
 }
 
-main>.gameWrapper>.gameControler>button:last-child {
-    display: none;
-}
-
 main>.gameWrapper>.gameArea {
     position: relative;
     height: 100vh;
@@ -75,10 +74,9 @@ main>.gameWrapper>.gameArea {
 
 .modal {
     width: 100vh;
-    border: 3px solid saddlebrown;
-    display: flex;
+    /* display: flex; */
+    display: none;
     opacity: 1;
-
 }
 
 .gameOver>.gameOverlay,
