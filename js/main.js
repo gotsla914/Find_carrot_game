@@ -1,109 +1,100 @@
-'use strict'
-
-const modal = document.querySelector('.modal');
-const modalOverlay = document.querySelector('.madalOverlay');
-const btnClose = document.querySelector('.btnClose');
-
-
-const openModal = () => {
-    modal.classList.remove('objHidden');
-}
-
-const btnStart = document.querySelector('.btnStart');
-btnStart.addEventListener('click', openModal);
-
-const closeModal = () => {
-    modal.classList.add('objHidden');
-}
-btnClose.addEventListener('click', closeModal);
-modalOverlay.addEventListener('click', closeModal);
-
-
-
-
-// 이미지 추가
+'use strict';
 
 const CARROT_SIZE = 80;
+const CARROT_COUNT = 5;
+const BUG_COUNT = 5;
+const GAME_DURATION_SEC = 5;
+
+
 const area = document.querySelector('.gameArea');
 const areaRect = area.getBoundingClientRect();
+const gameBtn = document.querySelector('.gameBtn');
+const gameTimer = document.querySelector('.gameTimer');
+const gameScore = document.querySelector('.gameScore');
+
+let started = false; //게임시작여부 기억하는 변수하나
+let score = 0; //최종점수 기억하는 변수
+let timer = undefined; //(겜시작후) 남은시간을 기억하는 타이머
 
 
-function init() {
-    // // 벌레, 당근 생성 후 area에 추가
-    console.log(areaRect);
-    addItem('carrot', 5, 'img/carrot.png');
-    addItem('bug', 5, 'img/bug.png');
+gameBtn.addEventListener('click', () => {
+    if (started) {
+        stopGame();
+    } else {
+        startGame();
+    }
+    started = !started; // stared가 true면 반대 false가 할당, 
+    // stared가 f면 반대 t를 할당, 
+})
+
+function startGame() {
+    initGame();
+    showStopBtn();
+    showTimerAndScore();
+    startGameTimer();
+};
+
+function stopGame() {};
+
+
+function showStopBtn() {
+    const icon = gameBtn.querySelector('.fa-play');
+    icon.classList.add('fa-stop');
+    icon.classList.remove('fa-play');
+}
+
+function showTimerAndScore() {
+    gameTimer.style.visibility = 'visible';
+    gameScore.style.visibility = 'visible';
+
+}
+
+function startGameTimer() {
+    let remainingTimeSec = GAME_DURATION_SEC;
+    updateTimerText(remainingTimeSec);
+    timer = setInterval(() => {
+        if(remaingingTimeSec <= 0) {
+            clearInterval(timer);
+            return;
+        }
+        updateTimerText(--remainingTimeSec);
+    }, 1000);
+}
+function updateTimerText(time) {
+    const minutes = Mate.floor(time / 60);
+    const seconds = time % 60;
+    gameTimer.innerText = `${minutes}:${seconds}`;
 }
 
 
-function addItem(className, count, imgPath){
-    //class이름, 몇개출력?, 이미지 경로 전달하면 -> 포지션 랜덤생성 후 area에 추가
+function initGame() {
+    area.innerHTML = '';
+    gameScore.innerText = CARROT_COUNT;
+
+    addItem('carrot', CARROT_COUNT, 'img/carrot.png');
+    addItem('bug', BUG_COUNT, 'img/bug.png')
+}
+
+function addItem(className, count, imgPath) {
     const x1 = 0;
     const y1 = 0;
+
     const x2 = areaRect.width - CARROT_SIZE;
     const y2 = areaRect.height - CARROT_SIZE;
 
-
-    //i는 0부터 시작~ count만큼 작아질동안 빙글빙글 돌면서 i를하나씩 증가시킴
-    for (let i = 0; i < count ; i++) {
+    for (let i = 0; i < count; i++) {
         const item = document.createElement('img');
         item.setAttribute('class', className);
         item.setAttribute('src', imgPath);
         item.style.position = 'absolute';
-
-        const x = randomNumber(x1, x2);
-        const y = randomNumber(y1, y2);
+        const x = randomNum(x1, x2);
+        const y = randomNum(y1, y2);
         item.style.left = `${x}px`;
         item.style.top = `${y}px`;
         area.appendChild(item);
     }
 }
 
-function randomNumber(min, max) {
+function randomNum(min, max) {
     return Math.random() * (max - min) + min;
-}
-
-init();
-// 이미지 받아오기
-// 윈도우 좌표 받아오기 (가로 세로)
-
-// 이미지 랜덤으로 배치? api사용 해서 함수 만들기
-
-//
-// 이미지 원하는 위치에 삽입
-
-
-
-
-
-
-
-
-
-// 시간초과
-const gameOver = document.querySelector('.gameOver');
-const btnGameOverClose = document.querySelector('.gameOverClose');
-const gameOverlay = document.querySelector('.gameOverlay')
-let callCount = '';
-let timeCount = 0;
-
-const openTimOutModal = () => {
-    gameOver.classList.remove('objHidden');
-}
-// setTimeout(openTimOutModal, 11000);
-
-const closeGameOverModal = () => {
-    gameOver.classList.add('objHidden');
-}
-btnGameOverClose.addEventListener('click', closeGameOverModal);
-
-const timer = document.querySelector('.timer');
-// callCount = setInterval(updateTimeCount, 1000);
-
-function updateTimeCount() {
-    timeCount++;
-    timer.innerHTML = timeCount;
-    if (timeCount == 10) {
-        clearInterval(callCount);
-    }
 }
