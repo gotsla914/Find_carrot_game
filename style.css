@@ -70,17 +70,9 @@ main>.gameWrapper>.gameArea {
 }
 
 
-/* modal */
+/* pop up */
 
-.modal {
-    width: 100vh;
-    /* display: flex; */
-    display: none;
-    opacity: 1;
-}
-
-.gameOver>.gameOverlay,
-.modal>.madalOverlay {
+.popUp>.popUpOverlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -89,8 +81,7 @@ main>.gameWrapper>.gameArea {
     background-color: rgba(0, 0, 0, 0.6)
 }
 
-.gameOver>.gameOverlInner,
-.modal>.modalInner {
+.popUp>.popUpInner {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -100,28 +91,22 @@ main>.gameWrapper>.gameArea {
     padding: 2rem;
     text-align: center;
     background-color: rgb(204, 204, 204);
+    border-radius: 2rem;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
 
-.gameOver>.gameOverlInner>img,
-.modal>.modalInner>img {
+.popUp>.popUpInner>img {
     width: 10rem;
     margin-bottom: 2rem;
 }
 
-.modal>.modalInner>img {
-    border-radius: 6rem;
-}
-
-.gameOver>.gameOverlInner>.popText,
-.modal>.modalInner>.popText {
+.popUp>.popUpInner>.popUpText {
     font: 1.2rem/1.7rem "Pretendard-Regular", "Fira Sans", sans-serif;
     margin-bottom: 1rem;
 
 }
 
-.gameOver>.gameOverlInner>.gameOverClose,
-.modal>.modalInner>.btnClose {
+.popUp>.popUpInner>.popUpRefresh{
     font: 1rem/1.7rem "Pretendard-Regular", "Fira Sans", sans-serif;
     display: block;
     margin: 0.2rem auto 0 auto;
@@ -135,14 +120,13 @@ main>.gameWrapper>.gameArea {
     cursor: pointer;
 }
 
-.gameOver>.gameOverlInner>.gameOverClose:hover,
-.modal>.modalInner>.btnClose:hover {
+.popUp>.popUpInner>.popUpRefresh:hover{
     transform: scale(1.1);
     border: 2px solid lightsalmon;
     color: lightsalmon;
 }
 
-.objHidden {
+.popUpHide {
     display: none;
     flex: 1 0 400px;
     margin: 1rem auto;
